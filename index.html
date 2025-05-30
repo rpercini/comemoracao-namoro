@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedido Especial</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ffd1dc, #ffe6f0);
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    #video-container {
+      margin-top: 50px;
+      padding: 0 10px;
+    }
+    iframe {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+    }
+    #pergunta-container {
+      display: none;
+      margin-top: 30px;
+      padding: 0 10px;
+      position: relative;
+    }
+    #gif-sim {
+      display: none;
+      margin-top: 20px;
+    }
+    .botao {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    #sim {
+      background-color: #ff5e78;
+      color: white;
+    }
+    #nao {
+      background-color: #aaa;
+      color: white;
+      position: relative;
+    }
+    #meme-img {
+      margin-top: 20px;
+      max-width: 80%;
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Música de fundo -->
+  <iframe style="display:none;" src="https://open.spotify.com/embed/track/ID_DA_MUSICA" width="1" height="1" frameborder="0" allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+  <div id="video-container">
+    <iframe id="ytvideo" src="https://www.youtube.com/embed/VIDEO_ID?enablejsapi=1" 
+      title="Momentos Especiais" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+
+  <div id="pergunta-container">
+    <h2>Quer casar comigo?</h2>
+    <img id="meme-img" src="https://i.imgur.com/w3duR07.png" alt="meme engraçado">
+    <div>
+      <button class="botao" id="sim">Sim</button>
+      <button class="botao" id="nao">Não</button>
+    </div>
+  </div>
+
+  <div id="gif-sim">
+    <img src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif" alt="Comemoração">
+  </div>
+
+  <script>
+    let tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+
+    let player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('ytvideo', {
+        events: {
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.ENDED) {
+        document.getElementById('pergunta-container').style.display = 'block';
+      }
+    }
+
+    document.getElementById('sim').addEventListener('click', () => {
+      document.getElementById('gif-sim').style.display = 'block';
+    });
+
+    const naoBtn = document.getElementById('nao');
+    naoBtn.addEventListener('mouseover', () => {
+      const container = document.getElementById('pergunta-container');
+      const maxX = container.offsetWidth - naoBtn.offsetWidth;
+      const maxY = container.offsetHeight - naoBtn.offsetHeight;
+      const newX = Math.floor(Math.random() * maxX);
+      const newY = Math.floor(Math.random() * maxY);
+      naoBtn.style.position = 'absolute';
+      naoBtn.style.left = newX + 'px';
+      naoBtn.style.top = newY + 'px';
+    });
+  </script>
+</body>
+</html>
