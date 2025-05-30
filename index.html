@@ -77,7 +77,76 @@
     <iframe id="ytvideo" width="100%" height="360" src="https://www.youtube.com/embed/8oA4QF7Exfo?enablejsapi=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 
-  <!-- etapas 1 a 12 aqui (não modificadas) -->
+  <div id="etapa1" class="hidden">
+    <p>Espera, não acabou ainda...</p>
+    <img src="https://media.giphy.com/media/umglV9kJbGeyjrVbmE/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(2)">Continuar</button>
+  </div>
+
+  <div id="etapa2" class="hidden">
+    <p>Espero que esteja gostando dessa noite!</p>
+    <img src="https://media.giphy.com/media/z4Zei4gioqANl4NDf4/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(3)">Continuar</button>
+  </div>
+
+  <div id="etapa3" class="hidden">
+    <p>Quer saber o que tem mais?</p>
+    <img src="https://media.giphy.com/media/ECvkR3jZPRZkmV1oPm/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(4)">Quero sim!</button>
+  </div>
+
+  <div id="etapa4" class="hidden">
+    <img src="https://media.giphy.com/media/oQ4lbBgztec3Z9ZZKf/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(5)">Conta logo!!!</button>
+  </div>
+
+  <div id="etapa5" class="hidden">
+    <img src="https://media.giphy.com/media/vch5NLImFq25bKNdlv/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(6)">hã??!! ta maluco?</button>
+  </div>
+
+  <div id="etapa6" class="hidden">
+    <p>Eu sei, sempre fui um cara "difícil" pra você</p>
+    <img src="https://media.giphy.com/media/WjZtl850xvNZWZKWrk/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(7)">Continuar 🥹</button>
+  </div>
+
+  <div id="etapa7" class="hidden">
+    <p>Chegou a sua hora! Ou melhor, a nossa hora!</p>
+    <img src="https://media.giphy.com/media/aG1CN8n0kpZT8OZCpH/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(8)">Que hora garoto?!</button>
+  </div>
+
+  <div id="etapa8" class="hidden">
+    <p>Nós amamos o nosso Fluminense... E o mundial está chegando...</p>
+    <img src="nossa-foto.jpg" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(9)">Continuar</button>
+  </div>
+
+  <div id="etapa9" class="hidden">
+    <p>E se eu contasse que consegui ingressos e o visto para os EUA?</p>
+    <img src="https://media.giphy.com/media/eHAzjjl4WXsPDDAFkU/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(10)">Sério??</button>
+  </div>
+
+  <div id="etapa10" class="hidden">
+    <p>Não! Era tudo brincadeira... Eu só queria...</p>
+    <img src="https://media.giphy.com/media/Ateffz9sc4XQLVKcBi/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(11)">Quer o que???!!</button>
+  </div>
+
+  <div id="etapa11" class="hidden">
+    <p>Queria saber se você aceita Casar Comigo??</p>
+    <img src="https://media.giphy.com/media/mwnIMFseQAjLv7I0t7/giphy.gif" class="gif">
+    <br>
+    <button class="button sim" onclick="mostrarEtapa(12)">SIM</button>
+    <button class="button nao" id="nao">NÃO</button>
+  </div>
+
+  <div id="etapa12" class="hidden">
+    <img src="https://media.giphy.com/media/h2AZszoUlX2jmuxXgt/giphy.gif" class="gif">
+    <p>Calma! Respira! E abre o porta luvas</p>
+  </div>
 
   <div class="audio-player">
     <audio id="bg-music" controls loop>
@@ -87,15 +156,6 @@
   </div>
 
   <script>
-    const nao = document.getElementById("nao");
-    if (nao) {
-      nao.addEventListener("mouseover", () => {
-        nao.style.position = 'absolute';
-        nao.style.left = Math.random() * 80 + '%';
-        nao.style.top = Math.random() * 60 + '%';
-      });
-    }
-
     let player;
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('ytvideo', {
@@ -120,7 +180,18 @@
       document.getElementById('etapa' + n).classList.remove('hidden');
     }
 
-    let tag = document.createElement('script');
+    const nao = document.getElementById("nao");
+    document.addEventListener("DOMContentLoaded", () => {
+      if (nao) {
+        nao.addEventListener("mouseover", () => {
+          nao.style.position = 'absolute';
+          nao.style.left = Math.random() * 80 + '%';
+          nao.style.top = Math.random() * 60 + '%';
+        });
+      }
+    });
+
+    const tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     document.body.appendChild(tag);
   </script>
