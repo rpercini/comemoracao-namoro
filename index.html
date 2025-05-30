@@ -10,7 +10,7 @@
       font-family: 'Arial', sans-serif;
       text-align: center;
       margin: 0;
-      padding: 0;
+      padding-bottom: 120px;
     }
     .hidden {
       display: none;
@@ -29,22 +29,37 @@
       border-radius: 8px;
       margin: 20px 10px;
       cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s, background-color 0.2s;
+      background-color: #ff4081;
+      color: white;
+    }
+    .button:hover {
+      transform: scale(1.05);
+      background-color: #e91e63;
     }
     .sim {
       background-color: #28a745;
-      color: white;
+    }
+    .sim:hover {
+      background-color: #218838;
     }
     .nao {
       background-color: #dc3545;
-      color: white;
-      position: relative;
+    }
+    .nao:hover {
+      background-color: #c82333;
+    }
+    #spotify-player {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
     }
   </style>
 </head>
 <body>
-
-  <!-- Música de fundo (sem autoplay por política do navegador) -->
-  <iframe style="display:none;" src="https://open.spotify.com/embed/track/3PGg3V56krasXrPKNvVLQU" width="1" height="1" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
   <h1>Feliz Dia dos Namorados</h1>
 
@@ -121,6 +136,11 @@
   <div id="etapa12" class="hidden">
     <img src="https://media.giphy.com/media/h2AZszoUlX2jmuxXgt/giphy.gif" class="gif">
     <p>Calma! Respira! E abre o porta luvas</p>
+  </div>
+
+  <!-- Player fixo do Spotify na base -->
+  <div id="spotify-player">
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3PGg3V56krasXrPKNvVLQU?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
 
   <script>
