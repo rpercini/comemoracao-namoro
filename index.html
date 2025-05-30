@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,78 +12,126 @@
       margin: 0;
       padding: 0;
     }
-    #video-container {
-      margin-top: 50px;
-      padding: 0 10px;
-    }
-    iframe {
-      width: 100%;
-      max-width: 560px;
-      height: 315px;
-    }
-    #pergunta-container {
+    .hidden {
       display: none;
-      margin-top: 30px;
-      padding: 0 10px;
-      position: relative;
     }
-    #gif-sim {
-      display: none;
-      margin-top: 20px;
+    iframe, img, video {
+      max-width: 100%;
     }
-    .botao {
+    .gif {
+      width: 80%;
+      max-width: 400px;
+    }
+    .button {
       padding: 15px 30px;
       font-size: 18px;
       border: none;
       border-radius: 8px;
-      margin: 10px;
+      margin: 20px 10px;
       cursor: pointer;
     }
-    #sim {
-      background-color: #ff5e78;
+    .sim {
+      background-color: #28a745;
       color: white;
     }
-    #nao {
-      background-color: #aaa;
+    .nao {
+      background-color: #dc3545;
       color: white;
       position: relative;
-    }
-    #meme-img {
-      margin-top: 20px;
-      max-width: 80%;
-    }
-    audio {
-      display: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- Música de fundo -->
-  <iframe style="display:none;" src="https://open.spotify.com/embed/track/3PGg3V56krasXrPKNvVLQU" width="1" height="1" frameborder="0" allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+  <!-- Música de fundo (sem autoplay por política do navegador) -->
+  <iframe style="display:none;" src="https://open.spotify.com/embed/track/3PGg3V56krasXrPKNvVLQU" width="1" height="1" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
-  <div id="video-container">
-    <iframe id="ytvideo" src="https://www.youtube.com/embed/8oA4QF7Exfo?enablejsapi=1" 
-      title="Momentos Especiais" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <h1>Feliz Dia dos Namorados</h1>
+
+  <div id="etapa0">
+    <iframe id="ytvideo" width="100%" height="360" src="https://www.youtube.com/embed/8oA4QF7Exfo?enablejsapi=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 
-  <div id="pergunta-container">
-    <h2>Quer casar comigo?</h2>
-    <img id="meme-img" src="https://media.giphy.com/media/mwnIMFseQAjLv7I0t7/giphy.gif" alt="meme engraçado">
-    <div>
-      <button class="botao" id="sim">Sim</button>
-      <button class="botao" id="nao">Não</button>
-    </div>
+  <div id="etapa1" class="hidden">
+    <p>Espera, não acabou ainda...</p>
+    <img src="https://media.giphy.com/media/umglV9kJbGeyjrVbmE/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(2)">Continuar</button>
   </div>
 
-  <div id="gif-sim">
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWhzODVxMnU3eXY2NG5lNGlzNW5iMnRzaWt5YXFyam1vOGdvZWhwciZlcD12MV9naWZzX3NlYXJjaCZjdD1n/h2AZszoUlX2jmuxXgt/giphy.gif" alt="Comemoração">
+  <div id="etapa2" class="hidden">
+    <p>Espero que esteja gostando dessa noite!</p>
+    <img src="https://media.giphy.com/media/z4Zei4gioqANl4NDf4/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(3)">Continuar</button>
+  </div>
+
+  <div id="etapa3" class="hidden">
+    <p>Quer saber o que tem mais?</p>
+    <img src="https://media.giphy.com/media/ECvkR3jZPRZkmV1oPm/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(4)">Quero sim!</button>
+  </div>
+
+  <div id="etapa4" class="hidden">
+    <img src="https://media.giphy.com/media/oQ4lbBgztec3Z9ZZKf/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(5)">Conta logo!!!</button>
+  </div>
+
+  <div id="etapa5" class="hidden">
+    <img src="https://media.giphy.com/media/vch5NLImFq25bKNdlv/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(6)">hã??!! ta maluco?</button>
+  </div>
+
+  <div id="etapa6" class="hidden">
+    <p>Eu sei, sempre fui um cara "difícil" pra você</p>
+    <img src="https://media.giphy.com/media/WjZtl850xvNZWZKWrk/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(7)">Continuar 🥹</button>
+  </div>
+
+  <div id="etapa7" class="hidden">
+    <p>Chegou a sua hora! Ou melhor, a nossa hora!</p>
+    <img src="https://media.giphy.com/media/aG1CN8n0kpZT8OZCpH/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(8)">Que hora garoto?!</button>
+  </div>
+
+  <div id="etapa8" class="hidden">
+    <p>Nós amamos o nosso Fluminense... E o mundial está chegando...</p>
+    <img src="nossa-foto.jpg" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(9)">Continuar</button>
+  </div>
+
+  <div id="etapa9" class="hidden">
+    <p>E se eu contasse que consegui ingressos e o visto para os EUA?</p>
+    <img src="https://media.giphy.com/media/eHAzjjl4WXsPDDAFkU/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(10)">Sério??</button>
+  </div>
+
+  <div id="etapa10" class="hidden">
+    <p>Não! Era tudo brincadeira... Eu só queria...</p>
+    <img src="https://media.giphy.com/media/Ateffz9sc4XQLVKcBi/giphy.gif" class="gif">
+    <br><button class="button" onclick="mostrarEtapa(11)">Quer o que???!!</button>
+  </div>
+
+  <div id="etapa11" class="hidden">
+    <p>Queria saber se você aceita Casar Comigo??</p>
+    <img src="https://media.giphy.com/media/mwnIMFseQAjLv7I0t7/giphy.gif" class="gif">
+    <br>
+    <button class="button sim" onclick="mostrarEtapa(12)">SIM</button>
+    <button class="button nao" id="nao">NÃO</button>
+  </div>
+
+  <div id="etapa12" class="hidden">
+    <img src="https://media.giphy.com/media/h2AZszoUlX2jmuxXgt/giphy.gif" class="gif">
+    <p>Calma! Respira! E abre o porta luvas</p>
   </div>
 
   <script>
-    let tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.body.appendChild(tag);
+    const nao = document.getElementById("nao");
+    if (nao) {
+      nao.addEventListener("mouseover", () => {
+        nao.style.position = 'absolute';
+        nao.style.left = Math.random() * 80 + '%';
+        nao.style.top = Math.random() * 60 + '%';
+      });
+    }
 
     let player;
     function onYouTubeIframeAPIReady() {
@@ -97,25 +144,22 @@
 
     function onPlayerStateChange(event) {
       if (event.data === YT.PlayerState.ENDED) {
-        document.getElementById('pergunta-container').style.display = 'block';
+        document.getElementById('etapa0').classList.add('hidden');
+        mostrarEtapa(1);
       }
     }
 
-    document.getElementById('sim').addEventListener('click', () => {
-      document.getElementById('gif-sim').style.display = 'block';
-    });
+    function mostrarEtapa(n) {
+      for (let i = 0; i <= 12; i++) {
+        const div = document.getElementById('etapa' + i);
+        if (div) div.classList.add('hidden');
+      }
+      document.getElementById('etapa' + n).classList.remove('hidden');
+    }
 
-    const naoBtn = document.getElementById('nao');
-    naoBtn.addEventListener('mouseover', () => {
-      const container = document.getElementById('pergunta-container');
-      const maxX = container.offsetWidth - naoBtn.offsetWidth;
-      const maxY = container.offsetHeight - naoBtn.offsetHeight;
-      const newX = Math.floor(Math.random() * maxX);
-      const newY = Math.floor(Math.random() * maxY);
-      naoBtn.style.position = 'absolute';
-      naoBtn.style.left = newX + 'px';
-      naoBtn.style.top = newY + 'px';
-    });
+    let tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
   </script>
 </body>
 </html>
